@@ -1,0 +1,84 @@
+<main class="h-100">
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row h-100">
+      <div class="col-md-1"></div>
+      <div class="col-md-9 text-center mt-5">
+        <div class="h-100 d-flex flex-column">
+          <h1 id="shop_name">{{ shopinfo.name }}</h1>
+          <form class="row gy-2 gx-3 mt-5 mb-3 align-items-center justify-content-center">
+            <div class="col-auto">
+              <label>Item 1</label>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="start_address">Start Point</label>
+              <input type="text" class="form-control" id="start_address_1" readonly="readonly" value="{{ shopinfo.address }}" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="end_address">Destination</label>
+              <input type="text" class="form-control geo_location" id="end_address_1" placeholder="End Address" onchange="checkDistance(event, 'start_address_1')" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="date">Date</label>
+              <input type="date" class="form-control" id="date_1" placeholder="Date" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="time">Time</label>
+              <input type="time" class="form-control" id="time_1" placeholder="Time" required>
+            </div>
+          </form>
+          <form class="row gy-2 gx-3 mt-1 mb-3 align-items-center justify-content-center">
+            <div class="col-auto">
+              <label>Item 2</label>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="start_address">Start Point</label>
+              <input type="text" class="form-control" id="start_address_2" readonly="readonly" value="{{ shopinfo.address }}" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="end_address">Destination</label>
+              <input type="text" class="form-control geo_location" id="end_address_2" placeholder="End Address" onchange="checkDistance(event, 'start_address_2')" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="date">Date</label>
+              <input type="date" class="form-control" id="date_2" placeholder="Date" required>
+            </div>
+            <div class="col-auto">
+              <label class="visually-hidden" for="time">Time</label>
+              <input type="time" class="form-control" id="time_2" placeholder="Time" required>
+            </div>
+          </form>
+          <div id="error" class="row flex-grow-1 mb-5" style="display:none;margin:auto;color:red"></div>
+          <div id="products" class="row flex-grow-1 mb-5">
+            <div class="col-sm-3" ng-repeat="x in products">
+              <div id="{{ x.Id }}" class="card draggable m-1">
+                <img id="item_img" ng-src="{{ x.Image }}" class="card-img-top img-fluid" alt="{{ x.Name }}">
+                <div class="card-body">
+                  <h6 id="item_info" class="card-title">{{ x.Name }}</h6>
+                  <p id="item_price" class="card-text">${{ x.Price }}</p>
+                </div>
+              </div>
+            </div>     
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 bg-light text-center">
+        <div class="h-100 d-flex flex-column">
+          <div class="row mt-3">
+            <h3>Your Order</h3>
+          </div>
+          <div id="cart" class="row flex-grow-1 justify-content-center">
+            <div id="instructions" class="align-self-center text-center fst-italic user-select-none">Your cart is empty.<br>Begin by dragging both products over.</div>
+          </div>
+          <div class="text-center my-3 mb-5">
+            <button type="submit" class="btn btn-danger" id='checkout' ng-click="submitCart()">Compare</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/drag_drop_c.js"></script>
+<script src="../assets/js/check_distance.js"></script>
+<script src="../assets/js/start_api.js"></script>
+<script src="../assets/js/set_location.js"></script>

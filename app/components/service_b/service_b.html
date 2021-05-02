@@ -1,0 +1,27 @@
+<main class="h-100">
+<div class="container-fluid h-100 d-flex flex-column">
+  <div class="row h-100">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center mt-5">
+      <div class="h-100 d-flex flex-column">
+        <h1>Ride and Deliver</h1>
+        <div id="products" class="row flex-grow-1 mb-5">
+        	<div class="col-sm-3" ng-repeat="x in shops">
+	          <a class="vendor_link text-dark text-decoration-none" href="#!shop{{ x.Id }}">
+	            <div class="card draggable m-1">
+	              <img id="vendor_img" ng-src="{{ x.Image }}" class="card-img-top img-fluid" alt="{{ x.Name }}">
+	              <div class="card-body text-start">
+	                <h6 id="vendor_name" class="card-title">{{ x.Name }}</h6>
+	                <p id="vendor_address" class="card-text">{{ x.Address }}</p>
+	                <p id="vendor_category" class="card-text d-none">{{ x.Category }}</p>
+	              </div>
+	            </div>
+	          </a>
+	        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+</main>

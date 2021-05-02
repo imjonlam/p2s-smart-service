@@ -1,0 +1,67 @@
+  <main class="h-100">
+    <div class="container-fluid h-100 d-flex flex-column">
+      <h2 class="text-center mt-5">Compare Your Choices</h2>
+      <div class="row h-100 mb-5">
+        <div class="col-md-6 mt-2 align-self-center text-center user-select-none card">
+          <div id="product" class="row justify-content-center text-center flex-grow-1 my-2">
+            <div class="col-sm-6">
+              <div id="{{ products[0].product_id }}">
+                <img id="item_img" ng-src="{{ products[0].product_img }}" class="card-img-top img-fluid" alt="{{ products[0].product_info }}">
+                <div class="card-body">
+                  <h3 id="item_info" class="card-title">{{ products[0].product_info }}</h3>
+                  <h6 id="item_h6rice" class="card-text">Price: {{ products[0].product_price }}</p>
+                </div>
+              </div>
+            </div>     
+          </div>
+          <div id="spacial">
+            <h6>FROM:</h6>
+            <span id="start">{{ checkoutInfo[0].start_address }}</span>
+            <h6 class="mt-2">TO:</h6>
+            <span id="end">{{ checkoutInfo[0].end_address }}</span>
+          </div>
+          <div id="temporal">
+            <h6 class="mt-2">DATETIME:</h6>
+            <span>{{ checkoutInfo[0].date }} {{ checkoutInfo[0].time }}</span>
+          </div>
+          <div id="reviews" class="mt-2">
+            <h6>Rating:</h6>
+            {{ rating_item1 }}
+          </div>
+          <div id="selection" class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary mb-2" id='checkout' ng-click="submitChoice1()">Select this Item</button>
+          </div>
+        </div>
+        <div class="col-md-6 mt-2 align-self-center text-center user-select-none card">
+          <div id="product" class="row justify-content-center text-center flex-grow-1 my-2">
+            <div class="col-sm-6">
+              <div id="{{ products[1].product_id }}">
+                <img id="item_img" ng-src="{{ products[1].product_img }}" class="card-img-top img-fluid" alt="{{ products[1].product_info }}">
+                <div class="card-body">
+                  <h3 id="item_info" class="card-title">{{ products[1].product_info }}</h3>
+                  <h6 id="item_h6rice" class="card-text">Price: {{ products[1].product_price }}</p>
+                </div>
+              </div>
+            </div>     
+          </div>
+          <div id="spacial">
+            <h6>FROM:</h6>
+            <span id="start">{{ checkoutInfo[1].start_address }}</span>
+            <h6 class="mt-2">TO:</h6>
+            <span id="end">{{ checkoutInfo[1].end_address }}</span>
+          </div>
+          <div id="temporal">
+            <h6 class="mt-2">DATETIME:</h6>
+            <span>{{ checkoutInfo[1].date }} {{ checkoutInfo[1].time }}</span>
+          </div>
+          <div id="reviews" class="mt-2">
+            <h6>Rating:</h6>
+            {{ rating_item2 }}
+          </div>
+          <div id="selection" class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary mb-2" id='checkout' ng-click="submitChoice2()">Select this Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>

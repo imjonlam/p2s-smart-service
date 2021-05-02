@@ -1,0 +1,80 @@
+  <main class="h-100">
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row h-100">
+      <div class="col-md-7 mt-2 align-self-center text-center user-select-none">
+        <h3>Order Summary</h3>
+        <div id="product" class="row justify-content-center flex-grow-1 my-2">
+          <div class="col-sm-6 text-center">
+            <div id="{{ products[0].product_id }}" class="m-1">
+              <img id="item_img" ng-src="{{ products[0].product_img }}" class="card-img-top img-fluid" alt="{{ products[0].product_info }}">
+              <div class="card-body">
+                <h3 id="item_info" class="card-title">{{ products[0].product_info }}</h3>
+                <p id="item_price" class="card-text">{{ products[0].product_price }}</p>
+              </div>
+            </div>
+          </div>     
+        </div>
+        <div id="spacial">
+          <h6>FROM:</h6>
+          <span id="start">{{ checkoutInfo[0].start_address }}</span>
+          <h6 class="mt-2">TO:</h6>
+          <span id="end">{{ checkoutInfo[0].end_address }}</span>
+          <input type='hidden' id='dist' name='dist' value='0.000'>
+        </div>
+        <div id="temporal">
+          <h6 class="mt-2">DATETIME:</h6>
+          <span>{{ checkoutInfo[0].date }} {{ checkoutInfo[0].time }}</span>
+        </div>
+      </div>
+      <div class="col-md-5 bg-light">
+        <form id="order_form" class="mt-5" ng-submit="submit()" ng-controller="OrderFormController">
+          <fieldset class="row g-2">
+            <legend>Payment Information</legend>
+            <div class="col-md-6">
+              <label for="first_name" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="first_name" pattern="[A-Za-z]+" required>
+            </div>
+            <div class="col-md-6">
+              <label for="last_name" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="last_name" pattern="[A-Za-z]+" required>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" pattern="\w+@\w+\.\w+" required>
+            </div>
+            <div class="col-12 mt-3">
+              <label for="card_number" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="card_number" pattern="[0-9]{13,}" required>
+            </div>
+            <div class="col-md-6">
+              <label for="card_expiry" class="form-label">Expiration Date (MM/YYYY)</label>
+              <input type="text" class="form-control" id="card_expiry" pattern="(0[0-9]|1[0-2])/20[2-9][0-9]" required>
+            </div>
+            <div class="col-md-6">
+             <label for="card_cvv" class="form-label">CVC/CVV</label>
+              <input type="text" class="form-control" id="card_cvv" pattern="[0-9]{3}" required>
+            </div>
+            <div class="col-12 mt-3 mb-5 text-center">
+              <button id="submit" type="submit" class="btn btn-lg btn-danger">Place Order</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="text-center">
+          <p id="return" style="visibility:hidden;">Your order has been processed, please wait.</p>
+          <p id="failure" style="visibility:hidden;">There has been an error porcessing your payment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row h-100">
+      <div id="map"></div>
+
+    </div>
+  </div>
+</main>
+
+<script src="./components/checkout/checkout.js"></script>
+<script src="../assets/js/start_api.js"></script>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+  <title>Ride to Your Destination</title>
+  <style>
+	  tr {
+		  border-top: 1px solid black;
+		  border-bottom: 1px solid black;
+	  }
+	  tr:nth-child(even) {
+		  background-color: #EEE;
+	  }
+	  td {
+		  padding: 0.5rem;
+	  }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <main class="h-100">
+    <div class="container-fluid h-100 d-flex flex-column">
+      <div class="row h-100">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center mt-5">
+          <div class="h-100 d-flex flex-column">
+            <h1>Delete From Database</h1>
+            <form class="row gy-2 gx-3 mt-5 mb-3 align-items-center justify-content-center">
+              <div class="col-auto">
+                <label for="tbl">Delete From</label>
+                <select class="form-control" id="tbl" name="tbl">
+					<option value="Cars">Cars</option>
+					<option value="Coffees">Coffees</option>
+					<option value="Flowers">Flowers</option>
+					<option value="Shops">Shops</option>
+					<option value="Trips">Trips</option>
+					<option value="Users">Users</option>
+                </select>
+              </div>
+            </form>
+            <div id="products" class="row flex-grow-1 mb-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./components/maintain_delete/del_item.js"></script>
+</body>
+</html>
